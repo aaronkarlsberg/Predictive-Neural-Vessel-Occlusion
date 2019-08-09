@@ -1,0 +1,90 @@
+Detect classes on a particular image for already trained weights on specific classes.
+
+./darknet detector test dir/clot.data dir/clot.cfg dir/weights dir/clot1.jpg
+
+./darknet detector train dir/clot.data dir/clot.cfg dir/weights 
+
+
+
+./darknet detector train clot.data cfg/clot-yolov3-tiny.cfg pretrained_weights/darknet53.conv.74 > log.txt
+
+
+darknet.exe detector train frontal-obj.data cfg/frontal-yolov3.cfg yolov3_DSA_last.weights > log.txt
+
+
+darknet.exe detector train clot.data cfg/clot-yolov3-tiny.cfg pretrained_weights/darknet53.conv.74 > log.txt
+
+./darknet detector test clot.data cfg/yolov3_DSA_F.cfg pretrained_weights/yolov3_DSA_F_9000.weights data/034f02.jpg
+
+
+./darknet detector test clot.data cfg/clot-yolov3-tiny.cfg pretrained_weights/darknet53.conv.74 data/labels/034f02.jpg
+
+
+./darknet detect cfg/clot-yolov3-tiny.cfg pretrained_weights/darknet53.conv.74 data/labels/034f02.jpg
+
+Count files in all directories:
+
+ls -lR *.jpg | wc -l
+
+ls -lR *'l'*.txt | wc -l
+
+
+Remove certain files in current dir:
+rm *'l'*.txt
+rm *'l'*.jpg
+
+
+
+for gpu processing:
+
+vi Makefile
+	Change gpu = 1 
+
+
+count directories:
+ls -lR | grep ^d | wc -l
+
+
+change directory names:
+for subdir in *; do mv $subdir "${subdir}l"; done;
+for subdir in *; do mv "${subdir}" "${subdir##*\ }f"; done;
+
+delete all subdirectories of depth 2. But not files!
+
+find . -mindepth 3 -type d -exec rm -rf "{}" \;
+find . -mindepth 2 -type d -exec rm -rf "{}" \;
+
+
+
+Cd into all directories change file names to incrementing integer numbers. Then add directory name to filename. two commands.
+
+for dir in *; do (cd "$dir" && ls -v | cat -n | while read n f; do mv -n "$f" "$n.jpg"; done); done; 
+for dir in *; do (cd "$dir" && for file in *; do mv $file "${dir}$file"; done;); done; 
+
+
+# moves all files in subdirectories of depth 2 into current directory.
+find . -mindepth 2 -type f -print -exec mv {} . \;
+
+
+# remove all empty directories:
+find . -type d -exec rm -rf "{}" \;
+
+///////
+change file names:
+ls -v | cat -n | while read n f; do mv -n "$f" "$n.jpg"; done
+
+for dir in *; do mv $dir $; done;
+
+echo: 
+for subdir in *; do echo "${subdir##*\ }"; done;
+
+for subdir in *; do echo "${subdir}"; done;
+
+
+-mindepth N tells to process only files that are at depth >= N
+-maxdepth M tells to process only files are at depth <= M.
+
+for dir in *; do (cd "$dir" && for file in *; do mv $file "${dir}$file"; done;); done; 
+
+
+
