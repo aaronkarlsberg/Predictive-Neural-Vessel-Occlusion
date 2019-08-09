@@ -1,0 +1,64 @@
+:::::::::::Frontal-All-Frames:::::::::::
+
+/Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/build/darknet/x64
+
+TRAIN
+./darknet detector train /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-obj.data /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-yolov3.cfg /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/darknet53.conv.74 -map >> frontal-all-log.txt
+
+
+TEST
+./darknet detector test /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-obj.data /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-yolov3.cfg /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/build/darknet/x64/backup/frontal-yolov3_last.weights -dont_show -ext_output < /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-test.txt >> result.txt
+
+
+
+./darknet detector test /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-obj.data /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-yolov3.cfg /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/build/darknet/x64/backup/frontal-yolov3_last.weights /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-dataset/299f03.jpg
+
+
+
+MAP
+./darknet detector map /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-obj.data /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-yolov3.cfg /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/build/darknet/x64/backup/frontal-yolov3_last.weights -dont_show -ext_output < /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/frontal-test.txt 
+
+
+:::::::::::Frontal-Best-Frames:::::::::::
+
+/Users/aaronkarlsberg/Desktop/Frontal/Frontal-Best-Frames/darknet/build/darknet/x64
+
+TRAIN
+./darknet detector train /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Best-Frames/darknet/frontal-obj.data /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Best-Frames/darknet/frontal-yolov3.cfg /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Best-Frames/darknet/darknet53.conv.74 -map >> frontal-best-log.txt
+
+
+TEST
+./darknet detector test /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Best-Frames/darknet/frontal-obj.data /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Best-Frames/darknet/frontal-yolov3.cfg /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Best-Frames/darknet/build/darknet/x64/backup/frontal-yolov3_last.weights -dont_show -ext_output < /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Best-Frames/darknet/frontal-test.txt >> result.txt
+
+:::::::::::Frontal-Average_Frames::::::::::::
+
+
+/Users/aaronkarlsberg/Desktop/Frontal/Frontal-Avg-Frames/darknet/build/darknet/x64
+
+TRAIN
+./darknet detector train /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Avg-Frames/darknet/frontal-obj.data /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Avg-Frames/darknet/frontal-yolov3.cfg /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Avg-Frames/darknet/darknet53.conv.74 -map >> frontal-ave-log.txt
+
+
+TEST
+./darknet detector test /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Avg-Frames/darknet/frontal-obj.data /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Avg-Frames/darknet/frontal-yolov3.cfg /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Avg-Frames/darknet/build/darknet/x64/backup/frontal-yolov3_last.weights -dont_show -ext_output < /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Avg-Frames/darknet/frontal-test.txt >> result.txt
+
+
+
+
+///////////////
+TEST
+./darknet detector test ./cfg/coco.data ./cfg/yolov3.cfg ./yolov3.weights -dont_show -ext_output < data/train.txt > result.txt
+
+
+///////////
+TRAIN
+./darknet detector train ./cfg/coco.data ./cfg/yolov3.cfg ./yolov3.weights
+
+
+./darknet detector train ../../../frontal-obj.data ../../../frontal-yolov3.cfg ../../../darknet53.conv.74 -map
+
+png chart saved in /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/build/darknet/x64
+
+weights saved in: /Users/aaronkarlsberg/Desktop/Frontal/Frontal-All-Frames/darknet/build/darknet/x64/backup
+
+logs saved in: /Users/aaronkarlsberg/Desktop/Frontal/Frontal-Best-Frames/darknet/build/darknet/x64
